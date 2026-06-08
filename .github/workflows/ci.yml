@@ -1,0 +1,9 @@
+# .github/workflows/ci.yml
+name: CI
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+jobs:
+  security:
+    uses: conta-simples/backend-workflow/.github/workflows/no-serverless-ci.yml@main
+    secrets: inherit

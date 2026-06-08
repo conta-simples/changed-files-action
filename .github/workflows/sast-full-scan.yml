@@ -1,0 +1,13 @@
+name: SAST Full Scan
+on:
+  push:
+    branches: [main, develop]
+  workflow_dispatch:
+    inputs:
+      sonar-organization: { type: string, default: conta-simples }
+      sonar-project-key:  { type: string, default: "conta-simples_changed-files-action" }
+      sonar-branch:       { type: string, default: "main" }
+jobs:
+  sast:
+    uses: conta-simples/backend-workflow/.github/workflows/sast-full-scan.yml@main
+    secrets: inherit
